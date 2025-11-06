@@ -33,6 +33,8 @@ If you want to run it locally:
 git clone https://github.com/Spectrae/personal-portfolio.git
 cd personal-portfolio
 
+---
+
 ## 📬 Contact
 If you like my work, connect with me on:  
 - **LinkedIn:** [https://linkedin.com/in/your-username](https://www.linkedin.com/in/rickmondal2004/)
