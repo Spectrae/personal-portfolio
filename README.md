@@ -29,14 +29,16 @@ Everything is custom coded — no frameworks used.
 
 ## 🛠️ Setup
 If you want to run it locally:
+
 ```bash
 git clone https://github.com/Spectrae/personal-portfolio.git
 cd personal-portfolio
 
----
+Then open index.html in your browser.
+📬 Contact
 
-## 📬 Contact
-If you like my work, connect with me on:  
-- **LinkedIn:** [https://linkedin.com/in/your-username](https://www.linkedin.com/in/rickmondal2004/)
-- **Email:** srick2004@gmail.com
+If you like my work, connect with me on:
 
+    LinkedIn: https://www.linkedin.com/in/rickmondal2004/
+
+Email: srick2004@gmail.com
