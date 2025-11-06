@@ -32,8 +32,6 @@ Everything is custom coded — no frameworks used.
 Here’s a quick preview of my portfolio homepage 👇  
 !![Portfolio Preview](https://raw.githubusercontent.com/Spectrae/personal-portfolio/main/preview.png)
 
-*(You can replace the above image with a screenshot of your homepage)*
-
 ---
 
 ## 🛠️ Setup
