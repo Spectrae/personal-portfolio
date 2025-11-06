@@ -27,18 +27,18 @@ Everything is custom coded — no frameworks used.
 
 ---
 
+## 🖼️ Preview
+
+Here’s a quick preview of my portfolio homepage 👇  
+!![Portfolio Preview](https://raw.githubusercontent.com/Spectrae/personal-portfolio/main/preview.png)
+
+*(You can replace the above image with a screenshot of your homepage)*
+
+---
+
 ## 🛠️ Setup
 If you want to run it locally:
 
 ```bash
 git clone https://github.com/Spectrae/personal-portfolio.git
 cd personal-portfolio
-
-Then open index.html in your browser.
-📬 Contact
-
-If you like my work, connect with me on:
-
-    LinkedIn: https://www.linkedin.com/in/rickmondal2004/
-
-Email: srick2004@gmail.com
