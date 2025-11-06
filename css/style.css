@@ -604,10 +604,7 @@ html:not(.dark) .timeline-item::before {
     /* Animation in animations.css */
 }
 
-.timeline-dot {
-    /* This class was in the HTML but unused in CSS. Hiding it. */
-    display: none;
-}
+/* Removed unused .timeline-dot class */
 
 .timeline-content {
     width: 100%;
@@ -722,6 +719,7 @@ html:not(.dark) .timeline-item::before {
 }
 
 .timeline-accordion-trigger[data-open="true"] + .timeline-details {
+    /* max-height is required for the open/close CSS transition */
     max-height: 500px; /* Controls accordion open height */
     padding: 0 2.5rem 2rem 2.5rem;
     border-top: 1px solid var(--border-dark);

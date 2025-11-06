@@ -15,5 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordion();
     initGridToggles();
     
-    console.log('Portfolio scripts initialized.');
 });

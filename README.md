@@ -30,7 +30,7 @@ Everything is custom coded — no frameworks used.
 ## 🖼️ Preview
 
 Here’s a quick preview of my portfolio homepage 👇  
-!![Portfolio Preview](https://raw.githubusercontent.com/Spectrae/personal-portfolio/main/preview.png)
+![Portfolio Preview](https://raw.githubusercontent.com/Spectrae/personal-portfolio/main/preview.png)
 
 ---
 
@@ -40,3 +40,4 @@ If you want to run it locally:
 ```bash
 git clone https://github.com/Spectrae/personal-portfolio.git
 cd personal-portfolio
+```
