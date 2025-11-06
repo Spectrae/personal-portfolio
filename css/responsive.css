@@ -1,0 +1,160 @@
+/* ===================================
+   RESPONSIVE DESIGN
+   
+   1.0 Tablet (<= 900px)
+   2.0 Mobile (<= 768px)
+   3.0 Small Mobile (<= 600px)
+====================================== */
+
+/* ===== 1.0 Tablet (<= 900px) ===== */
+@media (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* * Note: The redundant rule for hiding extra cards was removed.
+     * The global style '.project-card-extra { display: none; }'
+     * in style.css already handles this.
+     */
+}
+
+/* ===== 2.0 Mobile (<= 768px) ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        /* Per original spec, nav links are hidden on mobile. */
+        /* A hamburger menu would be a functional addition not requested. */
+        display: none; 
+    }
+
+    .main-header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .main-header.header-scrolled {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section > p {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .page-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem; /* Slightly increased gap for mobile stacking */
+    }
+
+    .column-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Make sure expanded grid also stays 1 column on mobile */
+    .project-grid.grid-expanded {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-container {
+        padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+        left: -2rem;
+        width: 12px;
+        height: 12px;
+        border-width: 3px;
+        top: 2.2rem; /* Polished alignment for mobile header */
+    }
+
+    .timeline-accordion-trigger {
+        padding: 1.5rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .timeline-accordion-trigger:hover {
+        padding-left: 1.75rem;
+    }
+
+    .timeline-title {
+        font-size: 1.2rem;
+    }
+
+    .timeline-company {
+        font-size: 0.9rem;
+    }
+
+    .timeline-date {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .timeline-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .timeline-details {
+        padding: 0 1.5rem;
+    }
+
+    .timeline-accordion-trigger[data-open="true"] + .timeline-details {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    .skills-panel {
+        padding: 2rem 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+/* ===== 3.0 Small Mobile (<= 600px) ===== */
+@media (max-width: 600px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certifications-grid.grid-expanded {
+        grid-template-columns: 1fr;
+    }
+
+    /* Polish: Adjust stats grid for very small screens */
+    .stats-grid {
+        gap: 1rem;
+    }
+    .stat-item {
+        padding: 0.75rem;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .stat-label {
+        font-size: 0.8rem;
+    }
+}
