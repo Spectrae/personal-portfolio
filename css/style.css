@@ -201,31 +201,43 @@ html:not(.dark) .frosted-glass {
 /* ===== 5.0 Header & Navigation ===== */
 .main-header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    /* CHANGED: Make header float */
+    top: 1rem; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem); /* 1rem margin on each side */
+    max-width: 1400px; /* Match the original nav max-width */
     z-index: 1000;
     padding: 1.5rem 2rem;
     transition: all 0.3s ease;
-}
-
-.main-header.header-scrolled {
+    
+    /* CHANGED: Apply frosted glass style by default */
     background: var(--glass-dark);
-    border-bottom: 1px solid var(--border-dark);
+    border: 1px solid var(--border-dark);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 1rem 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 2.5rem; /* Rounded corners */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-html:not(.dark) .main-header.header-scrolled {
+/* CHANGED: Apply light mode glass style by default */
+html:not(.dark) .main-header {
     background: var(--glass-light);
-    border-bottom: 1px solid var(--border-light);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
+
+/* CHANGED: This class now *only* handles the padding change on scroll */
+.main-header.header-scrolled {
+    padding: 1rem 2rem;
+}
+
+/* REMOVED: Redundant light mode scroll rule */
+/* html:not(.dark) .main-header.header-scrolled { ... } */
+
 
 .main-nav {
-    max-width: 1400px;
+    /* REMOVED: Max-width and margin, as parent .main-header now handles this */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -347,13 +359,22 @@ html:not(.dark) .hamburger-line {
 
 .mobile-menu {
     position: absolute;
-    top: 100%; /* Hangs just below the header */
+    /* CHANGED: Add gap to float below the header */
+    top: calc(100% + 0.5rem); 
     left: 0;
     right: 0;
     
     /* Use header frosted glass effect */
     background: var(--glass-dark);
-    border-bottom: 1px solid var(--border-dark);
+    
+    /* CHANGED: Update border and radius to match floating design */
+    border: 1px solid var(--border-dark);
+    border-top: none; /* Connects to header */
+    border-radius: 2.5rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    /* END CHANGES */
+
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -373,7 +394,10 @@ html:not(.dark) .hamburger-line {
 
 html:not(.dark) .mobile-menu {
     background: var(--glass-light);
-    border-bottom: 1px solid var(--border-light);
+    /* CHANGED: Update light mode border */
+    border: 1px solid var(--border-light);
+    border-top: none;
+    /* END CHANGES */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
