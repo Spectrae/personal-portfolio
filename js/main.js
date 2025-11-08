@@ -5,6 +5,7 @@ import { initScrollObserver } from './modules/observers.js';
 import { initAccordion } from './modules/accordion.js';
 import { initGridToggles } from './modules/gridToggle.js';
 import { initMobileNav } from './modules/mobileNav.js'; // NEW
+import { initContactForm } from './modules/contactForm.js'; // NEW: Import contact form logic
 
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,5 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordion();
     initGridToggles();
     initMobileNav(); // NEW
+    initContactForm(); // NEW: Initialize the contact form
     
 });

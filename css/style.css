@@ -1,3 +1,4 @@
+/* Modified: contact-form-fix */
 /* ===================================
    PORTFOLIO STYLESHEET
    
@@ -1075,6 +1076,33 @@ html:not(.dark) .contact-form textarea {
     padding: 1rem;
     border: none;
     cursor: pointer;
+}
+
+/* ===== 12.1 Contact Form Status Message (NEW) ===== */
+.form-status-message {
+    display: none; /* Hidden by default */
+    padding: 0.875rem 1.25rem;
+    margin-bottom: 1.5rem; /* Matches other form elements */
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.form-status-message.show {
+    display: block;
+}
+
+.form-status-message.success {
+    background: rgba(59, 130, 246, 0.1); /* Accent blue */
+    border-color: rgba(59, 130, 246, 0.3);
+    color: var(--accent-blue);
+}
+
+.form-status-message.error {
+    background: rgba(239, 68, 68, 0.1); /* Red */
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #ef4444; /* Tailwind red-500 */
 }
 
 /* ===== 13.0 Footer ===== */
