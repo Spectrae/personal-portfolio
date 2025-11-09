@@ -18,7 +18,7 @@ export function initMobileNav() {
         hamburgerBtn.setAttribute('aria-expanded', String(newState));
         mobileMenu.setAttribute('data-open', String(newState));
 
-        // Toggle body scroll
+        // Toggle body scroll lock
         if (newState) {
             html.classList.add('no-scroll'); // Prevent background scrolling
         } else {

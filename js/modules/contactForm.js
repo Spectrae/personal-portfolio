@@ -1,60 +1,68 @@
-// Modified: contact-form-fix
 /**
- * 7.0 CONTACT FORM SUBMISSION
- * Handles contact form submission using Fetch API to prevent page reload.
+ * 7.0 CONTACT FORM
+ * Handles form submission via AJAX for a no-reload experience.
  */
 export function initContactForm() {
-    const contactForm = document.querySelector('.contact-form');
-    if (!contactForm) return;
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
 
-    // Create a status message element
-    const statusMessage = document.createElement('div');
-    statusMessage.className = 'form-status-message';
-    
-    // Insert the status message before the submit button
-    const submitButton = contactForm.querySelector('button[type="submit"]');
-    if (submitButton) {
-        submitButton.before(statusMessage);
-    } else {
-        // Fallback if button isn't found
-        contactForm.prepend(statusMessage);
-    }
+    const statusMessage = form.querySelector('.form-status-message');
+    const submitButton = form.querySelector('button[type="submit"]');
 
-    contactForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent the default form submission (redirect)
+    if (!statusMessage || !submitButton) return;
 
-        const form = event.target;
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
         const formData = new FormData(form);
         const action = form.getAttribute('action');
         const method = form.getAttribute('method');
+        const originalButtonText = submitButton.textContent;
 
-        // Show a "sending" message
-        statusMessage.textContent = 'Sending...';
-        statusMessage.className = 'form-status-message show'; // Remove success/error classes
+        // Disable button and show sending message
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        statusMessage.classList.remove('show', 'success', 'error');
+        statusMessage.textContent = '';
 
-        fetch(action, {
-            method: method,
-            body: formData,
-            headers: {
-                'Accept': 'application/json' // Important for many form handlers
-            }
-        })
-        .then(response => {
+        try {
+            const response = await fetch(action, {
+                method: method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
             if (response.ok) {
                 // Success
-                statusMessage.textContent = 'Message sent successfully!';
-                statusMessage.className = 'form-status-message show success';
-                form.reset(); // Clear the form fields
+                statusMessage.textContent = 'Message sent successfully! Thanks for reaching out.';
+                statusMessage.classList.add('show', 'success');
+                form.reset();
             } else {
-                // Server returned an error
-                throw new Error('Network response was not ok.');
+                // Handle server errors (e.g., from formsubmit.co)
+                const data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error);
+                } else {
+                    throw new Error('Something went wrong. Please try again.');
+                }
             }
-        })
-        .catch(error => {
-            // Fetch error or server error
-            console.error('Form submission error:', error);
-            statusMessage.textContent = 'Oops! Something went wrong. Please try again.';
-            statusMessage.className = 'form-status-message show error';
-        });
+
+        } catch (error) {
+            // Handle network errors
+            statusMessage.textContent = error.message || 'An error occurred. Please try again later.';
+            statusMessage.classList.add('show', 'error');
+
+        } finally {
+            // Re-enable button
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+
+            // Hide status message after a few seconds
+            setTimeout(() => {
+                statusMessage.classList.remove('show');
+            }, 5000);
+        }
     });
 }

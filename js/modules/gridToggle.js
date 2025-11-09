@@ -12,27 +12,33 @@ function setupToggleGrid(toggleBtnId, gridSelector) {
     const toggleBtn = document.getElementById(toggleBtnId);
     const grid = document.querySelector(gridSelector);
 
-    if (toggleBtn && grid) {
-        toggleBtn.addEventListener('click', () => {
-            const isOpen = toggleBtn.getAttribute('data-open') === 'true';
-            const newState = !isOpen; // The new state we are moving to
-            
-            // Update button state and grid class
-            toggleBtn.setAttribute('data-open', String(newState));
-            grid.classList.toggle('grid-expanded', newState);
-
-            // Update button text
-            const label = toggleBtn.querySelector('span');
-            if (label) {
-                label.textContent = newState ? 'Show Less' : 'Show More';
-            }
-            
-            // Scroll to the button when opening
-            if (newState) {
-                toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        });
+    if (!toggleBtn || !grid) {
+        // Silently return if elements aren't found
+        return;
     }
+
+    toggleBtn.addEventListener('click', () => {
+        const isOpen = toggleBtn.getAttribute('data-open') === 'true';
+        const newState = !isOpen; // The new state we are moving to
+        
+        // Update button ARIA and data attributes
+        toggleBtn.setAttribute('data-open', String(newState));
+        toggleBtn.setAttribute('aria-expanded', String(newState));
+        
+        // Update grid class
+        grid.classList.toggle('grid-expanded', newState);
+
+        // Update button text
+        const label = toggleBtn.querySelector('span');
+        if (label) {
+            label.textContent = newState ? 'Show Less' : 'Show More';
+        }
+        
+        // Scroll to the button when opening
+        if (newState) {
+            toggleBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    });
 }
 
 /**

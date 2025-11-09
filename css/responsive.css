@@ -15,42 +15,40 @@
     .certifications-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    /* * Note: The redundant rule for hiding extra cards was removed.
-     * The global style '.project-card-extra { display: none; }'
-     * in style.css already handles this.
-     */
+
+    .project-info p {
+        min-height: 5.5rem; /* Adjust min-height for 2-column layout */
+    }
 }
 
 /* ===== 2.0 Mobile (<= 768px) ===== */
 @media (max-width: 768px) {
     .nav-links {
-        /* Per original spec, nav links are hidden on mobile. */
+        /* Desktop nav links are hidden on mobile. */
         display: none; 
     }
     
-    /* NEW: Show hamburger button on mobile */
     .hamburger-btn {
-        display: flex;
+        display: flex; /* Show hamburger button */
     }
 
-    /* NEW: Justify controls to the right since nav-links is hidden */
     .main-nav {
-        justify-content: flex-end;
+        justify-content: flex-end; /* Justify controls to the right */
     }
 
     .main-header {
-        /* This padding applies to the new floating header */
-        padding: 1rem 1.5rem;
+        /* Adjust floating header for mobile */
+        top: 0.75rem;
+        width: calc(100% - 1.5rem);
+        padding: 1rem 1.25rem;
     }
     
     .main-header.header-scrolled {
-        /* This padding applies to the new floating header */
-        padding: 0.75rem 1.5rem;
+        padding: 0.75rem 1.25rem;
     }
 
     .hero-section h1 {
-        font-size: 2.5rem;
+        font-size: 3rem; /* Adjusted for mobile */
     }
 
     .hero-section > p {
@@ -64,15 +62,14 @@
     }
 
     .page-section {
-        padding: 4rem 1.5rem;
+        padding: 4.5rem 1.5rem;
     }
 
     .two-column-layout {
         grid-template-columns: 1fr;
-        gap: 2.5rem; /* Slightly increased gap for mobile stacking */
+        gap: 3rem; /* Increased gap for mobile stacking */
     }
     
-    /* POLISH: Stack stats grid on mobile */
     .stats-grid {
         grid-template-columns: 1fr;
     }
@@ -83,6 +80,10 @@
 
     .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-info p {
+        min-height: auto; /* Reset min-height for single column */
     }
     
     /* Make sure expanded grid also stays 1 column on mobile */
@@ -142,11 +143,11 @@
     }
 
     .section-title {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
 
     .contact-form {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
     }
 }
 
@@ -160,7 +161,6 @@
         grid-template-columns: 1fr;
     }
 
-    /* Polish: Adjust stats grid for very small screens */
     .stats-grid {
         gap: 1rem;
     }
@@ -168,7 +168,7 @@
         padding: 0.75rem;
     }
     .stat-number {
-        font-size: 2rem;
+        font-size: 2.25rem;
     }
     .stat-label {
         font-size: 0.8rem;

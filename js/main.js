@@ -4,10 +4,13 @@ import { initHeaderScroll } from './modules/header.js';
 import { initScrollObserver } from './modules/observers.js';
 import { initAccordion } from './modules/accordion.js';
 import { initGridToggles } from './modules/gridToggle.js';
-import { initMobileNav } from './modules/mobileNav.js'; // NEW
-import { initContactForm } from './modules/contactForm.js'; // NEW: Import contact form logic
+import { initMobileNav } from './modules/mobileNav.js';
+import { initContactForm } from './modules/contactForm.js';
 
-// Wait for the DOM to be fully loaded before running scripts
+/**
+ * Main application entry point.
+ * Waits for the DOM to be fully loaded before initializing all modules.
+ */
 document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize all imported modules
@@ -16,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollObserver();
     initAccordion();
     initGridToggles();
-    initMobileNav(); // NEW
-    initContactForm(); // NEW: Initialize the contact form
+    initMobileNav();
+    initContactForm();
     
+    console.log("Portfolio scripts initialized.");
 });

@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick Mondal - Full-Stack Developer</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Updated font import for variable weights -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet">
     
+    <!-- Corrected file paths for CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
+    <!-- Background animated blobs -->
     <div class="blob-container">
         <div class="blob"></div>
         <div class="blob"></div>
@@ -20,6 +25,7 @@
         <div class="blob"></div>
     </div>
 
+    <!-- Main content wrapper -->
     <div class="content-wrapper">
         
         <header class="main-header">
@@ -31,20 +37,26 @@
                 </ul>
                 
                 <div class="header-controls">
+                    <!-- Hamburger button for mobile -->
                     <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                     </button>
                     
+                    <!-- Theme toggle button with both icons -->
                     <button id="theme-toggle" aria-label="Toggle light/dark mode">
-                        <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                         </svg>
                     </button>
                 </div>
             </nav>
             
+            <!-- Mobile navigation menu -->
             <div id="mobile-menu" class="mobile-menu" data-open="false">
                 <a href="#home" class="mobile-nav-link">Home</a>
                 <a href="#projects" class="mobile-nav-link">Projects</a>
@@ -53,6 +65,7 @@
         </header>
 
         <main>
+            <!-- Hero Section -->
             <section id="home" class="hero-section">
                 <h1>Rick Mondal</h1>
                 <p>Full-Stack Developer</p>
@@ -61,12 +74,12 @@
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/Spectrae" aria-label="GitHub Profile">
+                    <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                         <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/rickmondal2004" aria-label="LinkedIn Profile">
+                    <a href="https://www.linkedin.com/in/rickmondal2004" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                         <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
@@ -79,6 +92,7 @@
                 </a>
             </section>
 
+            <!-- About Section -->
             <section id="about" class="page-section two-column-layout">
                 <div class="column-text fade-in-element">
                     <h2>About Me</h2>
@@ -132,6 +146,7 @@
                 </div>
             </section>
 
+            <!-- Skills Section -->
             <section id="skills" class="page-section">
                 <div class="frosted-glass skills-panel fade-in-element">
                     <h2 class="section-title">My Technical Skills</h2>
@@ -174,13 +189,14 @@
                 </div>
             </section>
             
+            <!-- Experience Section -->
             <section id="experience" class="page-section">
                 <h2 class="section-title">Work Experience</h2>
                 <div class="timeline-container">
                     
                     <div class="timeline-item fade-in-element">
                         <div class="timeline-content frosted-glass">
-                            <button class="timeline-accordion-trigger" data-open="false">
+                            <button class="timeline-accordion-trigger" data-open="false" aria-controls="timeline-details-1">
                                 <div>
                                     <span class="timeline-date">2022 - Present</span>
                                     <h3 class="timeline-title">Senior Full-Stack Developer</h3>
@@ -192,7 +208,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="timeline-details">
+                            <div class="timeline-details" id="timeline-details-1">
                                 <p>Led development of a new client-facing dashboard that increased user engagement by 45%. Architected and implemented microservices infrastructure using Node.js and Docker, reducing deployment time by 60%. Mentored a team of 5 junior developers and established best practices for code quality and testing.</p>
                             </div>
                         </div>
@@ -200,7 +216,7 @@
                     
                     <div class="timeline-item fade-in-element">
                         <div class="timeline-content frosted-glass">
-                            <button class="timeline-accordion-trigger" data-open="false">
+                            <button class="timeline-accordion-trigger" data-open="false" aria-controls="timeline-details-2">
                                 <div>
                                     <span class="timeline-date">2020 - 2022</span>
                                     <h3 class="timeline-title">Full-Stack Developer</h3>
@@ -212,7 +228,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="timeline-details">
+                            <div class="timeline-details" id="timeline-details-2">
                                 <p>Developed and maintained multiple React-based web applications serving over 100,000 users. Implemented RESTful APIs with Express and MongoDB, ensuring 99.9% uptime. Collaborated with UX designers to create intuitive interfaces that improved user satisfaction scores by 35%.</p>
                             </div>
                         </div>
@@ -220,7 +236,7 @@
                     
                     <div class="timeline-item fade-in-element">
                         <div class="timeline-content frosted-glass">
-                            <button class="timeline-accordion-trigger" data-open="false">
+                            <button class="timeline-accordion-trigger" data-open="false" aria-controls="timeline-details-3">
                                 <div>
                                     <span class="timeline-date">2018 - 2020</span>
                                     <h3 class="timeline-title">Junior Web Developer</h3>
@@ -232,7 +248,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="timeline-details">
+                            <div class="timeline-details" id="timeline-details-3">
                                 <p>Built responsive landing pages and web applications using HTML, CSS, and JavaScript. Worked closely with senior developers to learn best practices in modern web development. Contributed to the migration of legacy systems to modern tech stacks.</p>
                             </div>
                         </div>
@@ -241,12 +257,13 @@
                 </div>
             </section>
 
+            <!-- Projects Section -->
             <section id="projects" class="page-section">
                 <h2 class="section-title">Projects</h2>
                 <div class="project-grid">
                     
                     <div class="frosted-glass project-card fade-in-element">
-                        <img src="https://placehold.co/600x400/00000a/3b82f6?text=E-Commerce+Platform" alt="E-Commerce Platform">
+                        <img src="https://placehold.co/600x400/02040a/3b82f6?text=E-Commerce+Platform" alt="E-Commerce Platform">
                         <div class="project-info">
                             <h3>E-Commerce Platform</h3>
                             <p>A full-stack e-commerce site with payment integration, real-time inventory management, and admin dashboard. Built to handle thousands of concurrent users.</p>
@@ -257,13 +274,13 @@
                                 <span>MongoDB</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="E-Commerce Platform GitHub Repository">
+                                <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="E-Commerce Platform GitHub Repository">
                                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                     GitHub
                                 </a>
-                                <a href="https://demo.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-demo" aria-label="E-Commerce Platform Live Demo">
+                                <a href="javascript:void(0);" class="project-link project-link-demo" aria-label="E-Commerce Platform Live Demo">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                                     </svg>
@@ -274,7 +291,7 @@
                     </div>
                     
                     <div class="frosted-glass project-card fade-in-element">
-                        <img src="https://placehold.co/600x400/00000a/8b5cf6?text=Task+Management+App" alt="Task Management App">
+                        <img src="https://placehold.co/600x400/02040a/8b5cf6?text=Task+Manager" alt="Task Management App">
                         <div class="project-info">
                             <h3>Task Management App</h3>
                             <p>A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
@@ -285,13 +302,13 @@
                                 <span>PostgreSQL</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Task Management App GitHub Repository">
+                                <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Task Management App GitHub Repository">
                                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                     GitHub
                                 </a>
-                                <a href="https://demo.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-demo" aria-label="Task Management App Live Demo">
+                                <a href="javascript:void(0);" class="project-link project-link-demo" aria-label="Task Management App Live Demo">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                                     </svg>
@@ -302,7 +319,7 @@
                     </div>
                     
                     <div class="frosted-glass project-card fade-in-element">
-                        <img src="https://placehold.co/600x400/00000a/06b6d4?text=Analytics+Dashboard" alt="Analytics Dashboard">
+                        <img src="https://placehold.co/600x400/02040a/06b6d4?text=Analytics+Dashboard" alt="Analytics Dashboard">
                         <div class="project-info">
                             <h3>Analytics Dashboard</h3>
                             <p>A data visualization platform that processes large datasets and presents insights through interactive charts and reports.</p>
@@ -313,13 +330,13 @@
                                 <span>AWS</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Analytics Dashboard GitHub Repository">
+                                <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Analytics Dashboard GitHub Repository">
                                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                     GitHub
                                 </a>
-                                <a href="https://demo.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-demo" aria-label="Analytics Dashboard Live Demo">
+                                <a href="javascript:void(0);" class="project-link project-link-demo" aria-label="Analytics Dashboard Live Demo">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                                     </svg>
@@ -330,10 +347,10 @@
                     </div>
 
                     <div class="frosted-glass project-card fade-in-element project-card-extra">
-                        <img src="https://placehold.co/600x400/00000a/06b6d4?text=Decentralized+voting+app" alt="Decentralized voting app">
+                        <img src="https://placehold.co/600x400/02040a/3b82f6?text=Decentralized+Voting" alt="Decentralized voting app">
                         <div class="project-info">
                             <h3>A decentralized voting app</h3>
-                            <p>The Decentralized Voting System using Ethereum Blockchain is a secure and transparent solution for conducting elections. Leveraging Ethereum's blockchain technology, this system ensures tamper-proof voting records, enabling users to cast their votes remotely while maintaining anonymity and preventing fraud. Explore this innovative project for trustworthy and decentralized voting processes.</p>
+                            <p>A secure and transparent voting system using Ethereum. This system ensures tamper-proof records, user anonymity, and fraud prevention. Explore this innovative project for trustworthy, decentralized elections.</p>
                             <div class="project-tags">
                                 <span>Next.js</span>
                                 <span>Solidity</span>
@@ -341,13 +358,13 @@
                                 <span>Firebase</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Decentralized voting app GitHub Repository">
+                                <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Decentralized voting app GitHub Repository">
                                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                     GitHub
                                 </a>
-                                <a href="https://demo.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-demo" aria-label="Decentralized voting app Live Demo">
+                                <a href="javascript:void(0);" class="project-link project-link-demo" aria-label="Decentralized voting app Live Demo">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                                     </svg>
@@ -358,10 +375,10 @@
                     </div>
                     
                     <div class="frosted-glass project-card fade-in-element project-card-extra">
-                        <img src="https://placehold.co/600x400/00000a/06b6d4?text=Scalable+URL+shortener" alt="Scalable URL shortener">
+                        <img src="https://placehold.co/600x400/02040a/8b5cf6?text=URL+Shortener" alt="Scalable URL shortener">
                         <div class="project-info">
                             <h3>Scalable URL shortener</h3>
-                            <p>A scalable URL shortener service with sharding support. </p>
+                            <p>A scalable URL shortener service with sharding support, built for high performance and availability. </p>
                             <div class="project-tags">
                                 <span>Ruby</span>
                                 <span>Express.js</span>
@@ -369,13 +386,13 @@
                                 <span>MongoDB</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Scalable URL shortener GitHub Repository">
+                                <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Scalable URL shortener GitHub Repository">
                                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                     GitHub
                                 </a>
-                                <a href="https://demo.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-demo" aria-label="Scalable URL shortener Live Demo">
+                                <a href="javascript:void(0);" class="project-link project-link-demo" aria-label="Scalable URL shortener Live Demo">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                                     </svg>
@@ -386,10 +403,10 @@
                     </div>
                     
                     <div class="frosted-glass project-card fade-in-element project-card-extra">
-                        <img src="https://placehold.co/600x400/00000a/06b6d4?text=Notification+system" alt="Notification system with Redis queues">
+                        <img src="https://placehold.co/600x400/02040a/06b6d4?text=Notification+System" alt="Notification system with Redis queues">
                         <div class="project-info">
                             <h3>Notification system with Redis queues</h3>
-                            <p>An event driven distributed notification using redis pubsub model and bullMQ for retrying mechanism. </p>
+                            <p>An event-driven distributed notification system using Redis pub/sub model and BullMQ for a robust retry mechanism.</p>
                             <div class="project-tags">
                                 <span>Node.js</span>
                                 <span>Vue.js</span>
@@ -397,13 +414,13 @@
                                 <span>Docker</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Notification system GitHub Repository">
+                                <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Notification system GitHub Repository">
                                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                                     </svg>
                                     GitHub
                                 </a>
-                                <a href="https://demo.com" target="_blank" rel="noopener noreferrer" class="project-link project-link-demo" aria-label="Notification system Live Demo">
+                                <a href="javascript:void(0);" class="project-link project-link-demo" aria-label="Notification system Live Demo">
                                     <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                                     </svg>
@@ -415,7 +432,7 @@
                 </div>
 
                 <div class="toggle-grid-container">
-                    <button id="projects-toggle-btn" class="toggle-grid-btn" data-open="false" aria-label="Show more projects">
+                    <button id="projects-toggle-btn" class="toggle-grid-btn" data-open="false" aria-label="Show more projects" aria-expanded="false">
                         <span>Show More</span>
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -424,6 +441,7 @@
                 </div>
             </section>
 
+            <!-- Certifications Section -->
             <section id="certifications" class="page-section">
                 <h2 class="section-title">Certifications & Licenses</h2>
                     <div class="certifications-grid">
@@ -432,47 +450,47 @@
                             <h3>Certified Full-Stack Web Developer</h3>
                             <p>Issued by: FreeCodeCamp</p>
                             <p>Year: 2023</p>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Certificate</a>
+                            <a href="javascript:void(0);" class="btn btn-secondary">View Certificate</a>
                         </div>
 
                         <div class="frosted-glass certification-card fade-in-element">
                             <h3>AWS Certified Developer – Associate</h3>
                             <p>Issued by: Amazon Web Services</p>
                             <p>Year: 2024</p>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Certificate</a>
+                            <a href="javascript:void(0);" class="btn btn-secondary">View Certificate</a>
                         </div>
 
                         <div class="frosted-glass certification-card fade-in-element">
                             <h3>Google Cloud Professional Engineer</h3>
                             <p>Issued by: Google Cloud</p>
                             <p>Year: 2024</p>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Certificate</a>
+                            <a href="javascript:void(0);" class="btn btn-secondary">View Certificate</a>
                         </div>
                         
                         <div class="frosted-glass certification-card fade-in-element cert-card-extra">
                             <h3>IBM Cybersecurity Analyst</h3>
                             <p>Issued by: IBM</p>
                             <p>Year: 2025</p>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Certificate</a>
+                            <a href="javascript:void(0);" class="btn btn-secondary">View Certificate</a>
                         </div>
                         
                         <div class="frosted-glass certification-card fade-in-element cert-card-extra">
                             <h3>Microsoft Certified: Data Analyst Associate</h3>
                             <p>Issued by: Microsoft</p>
                             <p>Year: 2025</p>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Certificate</a>
+                            <a href="javascript:void(0);" class="btn btn-secondary">View Certificate</a>
                         </div>
                         
                         <div class="frosted-glass certification-card fade-in-element cert-card-extra">
                             <h3>Oracle Certified Foundations Associate</h3>
                             <p>Issued by: Oracle</p>
                             <p>Year: 2025</p>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">View Certificate</a>
+                            <a href="javascript:void(0);" class="btn btn-secondary">View Certificate</a>
                         </div>
                     </div>
 
                     <div class="toggle-grid-container">
-                        <button id="certs-toggle-btn" class="toggle-grid-btn" data-open="false" aria-label="Show more certifications">
+                        <button id="certs-toggle-btn" class="toggle-grid-btn" data-open="false" aria-label="Show more certifications" aria-expanded="false">
                             <span>Show More</span>
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -482,6 +500,7 @@
 
             </section>
 
+            <!-- Contact Section -->
             <section id="contact" class="page-section two-column-layout">
                 <div class="column-text fade-in-element">
                     <h2>Get In Touch</h2>
@@ -489,17 +508,18 @@
                     <p>Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out. I'll do my best to get back to you as soon as possible!</p>
                     <div class="contact-links">
                         <a href="mailto:srick2004@gmail.com">📧 srick2004@gmail.com</a>
-                        <a href="https://www.linkedin.com/in/rickmondal2004/">💼 LinkedIn Profile</a>
-                        <a href="https://github.com/Spectrae">💻 GitHub Portfolio</a>
+                        <a href="https://www.linkedin.com/in/rickmondal2004/" target="_blank" rel="noopener noreferrer">💼 LinkedIn Profile</a>
+                        <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer">💻 GitHub Portfolio</a>
                     </div>
                 </div>
                 <div class="column-cards fade-in-element">
-                    <form class="frosted-glass contact-form" action="https://formsubmit.co/srick2004@gmail.com" method="POST">
+                    <!-- Updated form with status message div -->
+                    <form class="contact-form" action="https://formsubmit.co/srick2004@gmail.com" method="POST">
                         
+                        <div class="form-status-message" role="alert"></div>
+
                         <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission!">
-                        
-                        <input type="hidden" name="_next" value="#contact">
-                        
+                        <input type="hidden" name="_next" value="#contact"> <!-- Fallback for non-JS -->
                         <input type="hidden" name="_captcha" value="false">
                         
                         <label for="name">Name</label>
@@ -519,17 +539,17 @@
 
         <footer class="main-footer">
             <div class="social-links">
-                <a href="https://github.com/Spectrae" aria-label="GitHub Profile">
+                <a href="https://github.com/Spectrae" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
                     <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/rickmondal2004/" aria-label="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/rickmondal2004/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
                     <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                 </a>
-                <a href="https://x.com" aria-label="X (Twitter) Profile">
+                <a href="https://x.com/imrickmondal" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) Profile">
                     <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.5 11.24H16.13l-5.343-6.995L4.61 21.75H1.3l7.73-8.847L.857 2.25H8.12l4.823 6.417 5.3-6.417zm-1.163 17.52h1.832L7.02 4.126H5.073l12.008 15.644z"/>
                     </svg>
@@ -541,6 +561,7 @@
 
     </div>
     
+    <!-- Corrected file path for JS -->
     <script src="js/main.js" type="module" defer></script>
 </body>
 </html>

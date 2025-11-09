@@ -1,17 +1,30 @@
 /**
- * 4.0 TIMELINE ACCORDION TOGGLE
- * Toggles 'data-open' attribute on click for accordion behavior.
+ * 4.0 ACCORDION
+ * Handles the accordion functionality for the experience timeline.
  */
 export function initAccordion() {
     const triggers = document.querySelectorAll('.timeline-accordion-trigger');
 
     if (triggers.length === 0) return;
 
-    triggers.forEach((trigger) => {
+    triggers.forEach(trigger => {
+        const details = document.getElementById(trigger.getAttribute('aria-controls'));
+
+        if (!details) return;
+
         trigger.addEventListener('click', () => {
-            // Toggle the 'data-open' attribute between 'true' and 'false'
             const isOpen = trigger.getAttribute('data-open') === 'true';
-            trigger.setAttribute('data-open', String(!isOpen));
+            const newState = !isOpen;
+
+            trigger.setAttribute('data-open', String(newState));
+
+            if (newState) {
+                // Open the accordion
+                details.style.maxHeight = details.scrollHeight + 'px';
+            } else {
+                // Close the accordion
+                details.style.maxHeight = '0';
+            }
         });
     });
 }

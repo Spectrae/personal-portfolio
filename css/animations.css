@@ -7,19 +7,37 @@
 
 /* ===== 1.0 Keyframes ===== */
 
-@keyframes moveBlob {
-    0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-    }
-    100% {
-        transform: translate(100px, -50px) scale(1.3) rotate(180deg);
-    }
+/* More organic blob movement */
+@keyframes moveBlob1 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(150px, -100px) scale(1.2) rotate(90deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
 }
 
+@keyframes moveBlob2 {
+    0% { transform: translate(0, 0) scale(1.1) rotate(45deg); }
+    50% { transform: translate(-100px, 150px) scale(0.9) rotate(0deg); }
+    100% { transform: translate(0, 0) scale(1.1) rotate(45deg); }
+}
+
+@keyframes moveBlob3 {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(50px, 100px) scale(1.1) rotate(-90deg); }
+    100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+}
+
+@keyframes moveBlob4 {
+    0% { transform: translate(0, 0) scale(0.9) rotate(-30deg); }
+    50% { transform: translate(100px, -50px) scale(1.1) rotate(30deg); }
+    100% { transform: translate(0, 0) scale(0.9) rotate(-30deg); }
+}
+
+
+/* More subtle fade-in */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -50,17 +68,17 @@
 /* ===== 2.0 Animation Classes ===== */
 
 /* ----- Blob Animations ----- */
-.blob:nth-child(1) { animation: moveBlob 20s infinite alternate; }
-.blob:nth-child(2) { animation: moveBlob 25s infinite alternate; }
-.blob:nth-child(3) { animation: moveBlob 30s infinite alternate; }
-.blob:nth-child(4) { animation: moveBlob 18s infinite alternate; }
+.blob:nth-child(1) { animation: moveBlob1 20s infinite alternate; }
+.blob:nth-child(2) { animation: moveBlob2 25s infinite alternate-reverse; }
+.blob:nth-child(3) { animation: moveBlob3 30s infinite alternate; }
+.blob:nth-child(4) { animation: moveBlob4 18s infinite alternate-reverse; }
 
-/* ----- Hero Fade-in ----- */
-.hero-section h1 { animation: fadeInUp 1s var(--ease-out-quint); }
-.hero-section > p { animation: fadeInUp 1s var(--ease-out-quint) 0.2s both; }
-.hero-buttons { animation: fadeInUp 1s var(--ease-out-quint) 0.4s both; }
-.social-links { animation: fadeInUp 1s var(--ease-out-quint) 0.6s both; }
-.scroll-down-indicator { animation: fadeInUp 1s var(--ease-out-quint) 0.8s both; }
+/* ----- Hero Fade-in (Staggered) ----- */
+.hero-section h1 { animation: fadeInUp 1s var(--ease-out-quint) 0.1s both; }
+.hero-section > p { animation: fadeInUp 1s var(--ease-out-quint) 0.3s both; }
+.hero-buttons { animation: fadeInUp 1s var(--ease-out-quint) 0.5s both; }
+.social-links { animation: fadeInUp 1s var(--ease-out-quint) 0.7s both; }
+.scroll-down-indicator { animation: fadeInUp 1s var(--ease-out-quint) 0.9s both; }
 
 /* ----- Scroll Wheel ----- */
 .mouse-wheel { animation: scrollWheel 1.5s infinite ease-out; }
@@ -77,7 +95,7 @@
 /* ----- Scroll-triggered Fade-in ----- */
 .fade-in-element {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px); /* More subtle */
     transition: opacity 0.6s var(--ease-out-quint), transform 0.6s var(--ease-out-quint);
 }
 
