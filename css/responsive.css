@@ -6,7 +6,19 @@
    3.0 Small Mobile (<= 600px)
 ====================================== */
 
-/* ===== 1.0 Tablet (<= 900px) ===== */
+/*
+ * =================================================================
+ * AS PER YOUR REQUEST:
+ * All responsive overrides have been disabled (commented out)
+ * to ensure the desktop layout is preserved on mobile.
+ * The site will now scroll horizontally on smaller screens
+ * instead of stacking elements.
+ * =================================================================
+ */
+
+/*
+
+// ===== 1.0 Tablet (<= 900px) =====
 @media (max-width: 900px) {
     .project-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -17,27 +29,27 @@
     }
 
     .project-info p {
-        min-height: 5.5rem; /* Adjust min-height for 2-column layout */
+        min-height: 5.5rem; // Adjust min-height for 2-column layout
     }
 }
 
-/* ===== 2.0 Mobile (<= 768px) ===== */
+// ===== 2.0 Mobile (<= 768px) =====
 @media (max-width: 768px) {
     .nav-links {
-        /* Desktop nav links are hidden on mobile. */
+        // Desktop nav links are hidden on mobile.
         display: none; 
     }
     
     .hamburger-btn {
-        display: flex; /* Show hamburger button */
+        display: flex; // Show hamburger button
     }
 
     .main-nav {
-        justify-content: flex-end; /* Justify controls to the right */
+        justify-content: flex-end; // Justify controls to the right
     }
 
     .main-header {
-        /* Adjust floating header for mobile */
+        // Adjust floating header for mobile
         top: 0.75rem;
         width: calc(100% - 1.5rem);
         padding: 1rem 1.25rem;
@@ -48,7 +60,7 @@
     }
 
     .hero-section h1 {
-        font-size: 3rem; /* Adjusted for mobile */
+        font-size: 3rem; // Adjusted for mobile
     }
 
     .hero-section > p {
@@ -67,7 +79,7 @@
 
     .two-column-layout {
         grid-template-columns: 1fr;
-        gap: 3rem; /* Increased gap for mobile stacking */
+        gap: 3rem; // Increased gap for mobile stacking
     }
     
     .stats-grid {
@@ -83,10 +95,10 @@
     }
 
     .project-info p {
-        min-height: auto; /* Reset min-height for single column */
+        min-height: auto; // Reset min-height for single column
     }
     
-    /* Make sure expanded grid also stays 1 column on mobile */
+    // Make sure expanded grid also stays 1 column on mobile
     .project-grid.grid-expanded {
         grid-template-columns: 1fr;
     }
@@ -100,7 +112,7 @@
         width: 12px;
         height: 12px;
         border-width: 3px;
-        top: 2.2rem; /* Polished alignment for mobile header */
+        top: 2.2rem; // Polished alignment for mobile header
     }
 
     .timeline-accordion-trigger {
@@ -151,7 +163,7 @@
     }
 }
 
-/* ===== 3.0 Small Mobile (<= 600px) ===== */
+// ===== 3.0 Small Mobile (<= 600px) =====
 @media (max-width: 600px) {
     .certifications-grid {
         grid-template-columns: 1fr;
@@ -174,3 +186,5 @@
         font-size: 0.8rem;
     }
 }
+
+*/

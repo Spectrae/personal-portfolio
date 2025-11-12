@@ -45,6 +45,12 @@
 
 html {
     scroll-behavior: smooth;
+    /* * CHANGED: Added min-width.
+     * This forces the HTML element to be at least 1240px wide,
+     * which helps fixed-position elements like the header and
+     * background grid behave more predictably on small screens.
+     */
+    min-width: 1240px; 
 }
 
 /* Utility class to prevent scroll when mobile menu is open */
@@ -59,7 +65,11 @@ body {
     background: var(--bg-dark);
     color: var(--text-dark);
     line-height: 1.6;
-    overflow-x: hidden;
+    /* * CHANGED: Removed 'overflow-x: hidden;'.
+     * This is the key change to ALLOW horizontal scrolling
+     * when the content (forced by min-width) is wider
+     * than the mobile viewport.
+     */
     transition: background 0.3s ease, color 0.3s ease;
 }
 
