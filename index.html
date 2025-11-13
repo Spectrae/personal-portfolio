@@ -2,22 +2,19 @@
 <html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1240">
     <title>Rick Mondal - Full-Stack Developer</title>
     
-    <!-- Updated font import for variable weights -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap" rel="stylesheet">
     
-    <!-- Corrected file paths for CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-    <!-- Background animated blobs -->
     <div class="blob-container">
         <div class="blob"></div>
         <div class="blob"></div>
@@ -25,7 +22,6 @@
         <div class="blob"></div>
     </div>
 
-    <!-- Main content wrapper -->
     <div class="content-wrapper">
         
         <header class="main-header">
@@ -37,14 +33,12 @@
                 </ul>
                 
                 <div class="header-controls">
-                    <!-- Hamburger button for mobile -->
                     <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                         <span class="hamburger-line"></span>
                     </button>
                     
-                    <!-- Theme toggle button with both icons -->
                     <button id="theme-toggle" aria-label="Toggle light/dark mode">
                         <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="display: none;">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
@@ -56,7 +50,6 @@
                 </div>
             </nav>
             
-            <!-- Mobile navigation menu -->
             <div id="mobile-menu" class="mobile-menu" data-open="false">
                 <a href="#home" class="mobile-nav-link">Home</a>
                 <a href="#projects" class="mobile-nav-link">Projects</a>
@@ -65,7 +58,6 @@
         </header>
 
         <main>
-            <!-- Hero Section -->
             <section id="home" class="hero-section">
                 <h1>Rick Mondal</h1>
                 <p>Full-Stack Developer</p>
@@ -92,7 +84,6 @@
                 </a>
             </section>
 
-            <!-- About Section -->
             <section id="about" class="page-section two-column-layout">
                 <div class="column-text fade-in-element">
                     <h2>About Me</h2>
@@ -146,7 +137,6 @@
                 </div>
             </section>
 
-            <!-- Skills Section -->
             <section id="skills" class="page-section">
                 <div class="frosted-glass skills-panel fade-in-element">
                     <h2 class="section-title">My Technical Skills</h2>
@@ -189,7 +179,6 @@
                 </div>
             </section>
             
-            <!-- Experience Section -->
             <section id="experience" class="page-section">
                 <h2 class="section-title">Work Experience</h2>
                 <div class="timeline-container">
@@ -257,7 +246,6 @@
                 </div>
             </section>
 
-            <!-- Projects Section -->
             <section id="projects" class="page-section">
                 <h2 class="section-title">Projects</h2>
                 <div class="project-grid">
@@ -441,7 +429,6 @@
                 </div>
             </section>
 
-            <!-- Certifications Section -->
             <section id="certifications" class="page-section">
                 <h2 class="section-title">Certifications & Licenses</h2>
                     <div class="certifications-grid">
@@ -500,7 +487,6 @@
 
             </section>
 
-            <!-- Contact Section -->
             <section id="contact" class="page-section two-column-layout">
                 <div class="column-text fade-in-element">
                     <h2>Get In Touch</h2>
@@ -513,14 +499,12 @@
                     </div>
                 </div>
                 <div class="column-cards fade-in-element">
-                    <!-- Updated form with status message div -->
                     <form class="contact-form" action="https://formsubmit.co/srick2004@gmail.com" method="POST">
                         
                         <div class="form-status-message" role="alert"></div>
 
                         <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission!">
-                        <input type="hidden" name="_next" value="#contact"> <!-- Fallback for non-JS -->
-                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="#contact"> <input type="hidden" name="_captcha" value="false">
                         
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required placeholder="Your name">
@@ -561,7 +545,6 @@
 
     </div>
     
-    <!-- Corrected file path for JS -->
     <script src="js/main.js" type="module" defer></script>
 </body>
 </html>

@@ -33,8 +33,8 @@
     --bg-light: #f8faff;
     --text-dark: #E5E7EB;
     --text-light: #111827;
-    --glass-dark: rgba(10, 10, 20, 0.65); /* Increased opacity */
-    --glass-light: rgba(255, 255, 255, 0.65); /* Increased opacity */
+    --glass-dark: rgba(10, 10, 20, 0.65);
+    --glass-light: rgba(255, 255, 255, 0.65);
     --border-dark: rgba(255, 255, 255, 0.1);
     --border-light: rgba(0, 0, 0, 0.1);
     --accent-blue: #3b82f6;
@@ -45,126 +45,133 @@
 
 html {
     scroll-behavior: smooth;
-    /* * CHANGED: Added min-width.
-     * This forces the HTML element to be at least 1240px wide,
-     * which helps fixed-position elements like the header and
-     * background grid behave more predictably on small screens.
-     */
-    min-width: 1240px; 
+    min-width: 320px; /* Allow responsive on mobile */
+    background: var(--bg-dark);
+    transition: background 0.3s ease, color 0.3s ease;
+    background-image: 
+        repeating-linear-gradient(
+            to right,
+            var(--border-dark) 0px,
+            var(--border-dark) 1px,
+            transparent 1px,
+            transparent 100px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            var(--border-dark) 0px,
+            var(--border-dark) 1px,
+            transparent 1px,
+            transparent 100px
+        );
 }
 
-/* Utility class to prevent scroll when mobile menu is open */
 html.no-scroll {
     overflow: hidden;
 }
 
+html:not(.dark) {
+    background: var(--bg-light);
+    background-image: 
+        repeating-linear-gradient(
+            to right,
+            var(--border-light) 0px,
+            var(--border-light) 1px,
+            transparent 1px,
+            transparent 100px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            var(--border-light) 0px,
+            var(--border-light) 1px,
+            transparent 1px,
+            transparent 100px
+        );
+}
+
 body {
     font-family: 'Inter', sans-serif;
-    /* Enable variable font weight */
     font-variation-settings: 'wght' auto;
-    background: var(--bg-dark);
+    background: transparent;
     color: var(--text-dark);
     line-height: 1.6;
-    /* * CHANGED: Removed 'overflow-x: hidden;'.
-     * This is the key change to ALLOW horizontal scrolling
-     * when the content (forced by min-width) is wider
-     * than the mobile viewport.
-     */
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 html:not(.dark) body {
-    background: var(--bg-light);
     color: var(--text-light);
 }
 
 /* ===== 2.0 Background & Grid ===== */
 .blob-container {
     position: fixed;
-    z-index: -1;
+    z-index: 0;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;           /* Full viewport width */
     height: 100vh;
     overflow: hidden;
     pointer-events: none;
-    /* Subtle grid lines */
-    background-image: 
-        repeating-linear-gradient(
-            to right,
-            var(--border-dark) 0px,
-            var(--border-dark) 1px,
-            transparent 1px,
-            transparent 100px /* Grid size */
-        ),
-        repeating-linear-gradient(
-            to bottom,
-            var(--border-dark) 0px,
-            var(--border-dark) 1px,
-            transparent 1px,
-            transparent 100px
-        );
+    /* Removed min-width: 1240px */
 }
 
-/* Light mode grid */
-html:not(.dark) .blob-container {
-    background-image: 
-        repeating-linear-gradient(
-            to right,
-            var(--border-light) 0px,
-            var(--border-light) 1px,
-            transparent 1px,
-            transparent 100px
-        ),
-        repeating-linear-gradient(
-            to bottom,
-            var(--border-light) 0px,
-            var(--border-light) 1px,
-            transparent 1px,
-            transparent 100px
-        );
-}
-
+/* Responsive blob base styles */
 .blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(120px);
-    opacity: 0.7;
-    /* Animation rules are in animations.css */
 }
 
-/* Adjusted blob properties for more dynamic feel */
+/* Blob 1 - Top Left */
 .blob:nth-child(1) {
     width: 500px;
     height: 500px;
-    background: rgba(59, 130, 246, 0.3);
+    background: rgba(59, 130, 246, 0.4);
     top: -100px;
     left: -100px;
 }
 
+/* Blob 2 - Bottom Right */
 .blob:nth-child(2) {
     width: 600px;
     height: 600px;
-    background: rgba(139, 92, 246, 0.2);
+    background: rgba(139, 92, 246, 0.3);
     bottom: -150px;
-    right: -150px;
+    right: -100px; /* Ensures it extends beyond right edge */
 }
 
+/* Blob 3 - Center */
 .blob:nth-child(3) {
     width: 400px;
     height: 400px;
-    background: rgba(0, 0, 30, 0.5);
+    background: rgba(30, 30, 60, 0.5);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
+/* Blob 4 - Top Right */
 .blob:nth-child(4) {
     width: 300px;
     height: 300px;
-    background: rgba(59, 130, 246, 0.15);
+    background: rgba(59, 130, 246, 0.4);
     top: 20%;
-    left: 70%;
+    right: -50px;
+}
+
+/* Mobile Responsiveness for Blobs */
+@media (max-width: 768px) {
+    .blob:nth-child(1) { width: 300px; height: 300px; top: -50px; left: -50px; }
+    .blob:nth-child(2) { width: 350px; height: 350px; bottom: -80px; right: -80px; }
+    .blob:nth-child(3) { width: 250px; height: 250px; }
+    .blob:nth-child(4) { width: 200px; height: 200px; top: 15%; right: -30px; }
+}
+
+@media (max-width: 480px) {
+    .blob:nth-child(1) { width: 250px; height: 250px; top: -30px; left: -30px; }
+    .blob:nth-child(2) { width: 280px; height: 280px; bottom: -60px; right: -60px; }
+    .blob:nth-child(3) { width: 200px; height: 200px; }
+    .blob:nth-child(4) { width: 180px; height: 180px; }
 }
 
 /* ===== 3.0 Frosted Glass Effect ===== */
@@ -193,14 +200,14 @@ html:not(.dark) .frosted-glass {
 .page-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 6rem 2rem; /* Increased vertical padding */
+    padding: 6rem 2rem;
 }
 
 .section-title {
-    font-size: 2.75rem; /* Slightly larger */
+    font-size: 2.75rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 3.5rem; /* Increased margin */
+    margin-bottom: 3.5rem;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -210,29 +217,26 @@ html:not(.dark) .frosted-glass {
 .two-column-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3.5rem; /* Increased gap */
+    gap: 3.5rem;
     align-items: start;
 }
 
 /* ===== 5.0 Header & Navigation ===== */
 .main-header {
     position: fixed;
-    /* Floating header */
-    top: 1rem; 
+    top: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 2rem); /* 1rem margin on each side */
+    width: calc(100% - 2rem);
     max-width: 1400px;
     z-index: 1000;
     padding: 1.5rem 2rem;
     transition: all 0.3s ease;
-    
-    /* Apply frosted glass style by default */
     background: var(--glass-dark);
     border: 1px solid var(--border-dark);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-radius: 2.5rem; /* Rounded corners */
+    border-radius: 2.5rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -242,7 +246,6 @@ html:not(.dark) .main-header {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* This class now *only* handles the padding change on scroll */
 .main-header.header-scrolled {
     padding: 1rem 2rem;
 }
@@ -266,18 +269,18 @@ html:not(.dark) .main-header {
     font-weight: 500;
     transition: color 0.3s ease, transform 0.3s ease;
     position: relative;
-    padding-bottom: 5px; /* Space for the underline */
+    padding-bottom: 5px;
 }
 
 .nav-links a:hover {
     color: var(--accent-blue);
-    transform: translateY(-2px); /* Subtle lift */
+    transform: translateY(-2px);
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 0; /* Positioned at the bottom */
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
@@ -289,11 +292,10 @@ html:not(.dark) .main-header {
     width: 100%;
 }
 
-/* Wrapper for hamburger and theme-toggle */
 .header-controls {
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Space between hamburger and theme toggle */
+    gap: 0.5rem;
 }
 
 #theme-toggle {
@@ -307,8 +309,8 @@ html:not(.dark) .main-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px; /* Explicit size */
-    height: 40px; /* Explicit size */
+    width: 40px;
+    height: 40px;
 }
 
 html:not(.dark) #theme-toggle {
@@ -326,28 +328,23 @@ html:not(.dark) #theme-toggle {
     transition: transform 0.3s ease;
 }
 
-/* Theme icon visibility */
 #theme-toggle .sun-icon { display: none; }
 #theme-toggle .moon-icon { display: none; }
-
 html.dark #theme-toggle .sun-icon { display: block; }
 html:not(.dark) #theme-toggle .moon-icon { display: block; }
 
-
 /* ===== 5.1 Mobile Navigation ===== */
 .hamburger-btn {
-    display: none; /* Hidden by default, shown on mobile */
+    display: none;
     flex-direction: column;
-    gap: 5px; /* Spacing between lines */
+    gap: 5px;
     width: 40px;
     height: 40px;
     padding: 0.5rem;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1002; /* Above mobile menu */
-    
-    /* Center the lines */
+    z-index: 1002;
     align-items: center;
     justify-content: center;
 }
@@ -365,7 +362,6 @@ html:not(.dark) .hamburger-line {
     background-color: var(--text-light);
 }
 
-/* "X" Animation */
 .hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
@@ -381,31 +377,23 @@ html:not(.dark) .hamburger-line {
 
 .mobile-menu {
     position: absolute;
-    /* Add gap to float below the header */
-    top: calc(100% + 0.5rem); 
+    top: calc(100% + 0.5rem);
     left: 0;
     right: 0;
-    
-    /* Use header frosted glass effect */
     background: var(--glass-dark);
-    
-    /* Update border and radius to match floating design */
     border: 1px solid var(--border-dark);
-    border-top: none; /* Connects to header */
-    border-radius: 2rem; /* Match header radius */
+    border-top: none;
+    border-radius: 2rem;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-
-    /* Hide/show transition */
     opacity: 0;
     transform: translateY(-20px);
     pointer-events: none;
     transition: all 0.3s var(--ease-out-quint);
-    overflow: hidden; /* Ensure rounded corners clip content */
+    overflow: hidden;
 }
 
 .mobile-menu[data-open="true"] {
@@ -423,7 +411,7 @@ html:not(.dark) .mobile-menu {
 
 .mobile-nav-link {
     display: block;
-    padding: 1.25rem 1.5rem; /* Matches mobile header padding */
+    padding: 1.25rem 1.5rem;
     color: inherit;
     text-decoration: none;
     font-weight: 600;
@@ -446,7 +434,7 @@ html:not(.dark) .mobile-nav-link {
 
 /* ===== 6.0 Hero Section ===== */
 .hero-section {
-    min-height: 100vh; /* Use min-height for flexibility */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -457,7 +445,7 @@ html:not(.dark) .mobile-nav-link {
 }
 
 .hero-section h1 {
-    font-size: 4.5rem; /* Slightly larger */
+    font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
@@ -571,7 +559,6 @@ html:not(.dark) .mouse-icon {
     top: 8px;
     left: 50%;
     transform: translateX(-50%);
-    /* Animation in animations.css */
 }
 
 html:not(.dark) .mouse-wheel {
@@ -710,7 +697,6 @@ html:not(.dark) .stat-item {
     padding: 2rem 0 2rem 3rem;
 }
 
-/* Vertical line on the left */
 .timeline-container::before {
     content: '';
     position: absolute;
@@ -731,12 +717,11 @@ html:not(.dark) .stat-item {
     width: 100%;
 }
 
-/* Connecting dot on the line */
 .timeline-item::before {
     content: '';
     position: absolute;
     left: -3rem;
-    top: 2.75rem; /* Aligns with the center of the accordion header */
+    top: 2.75rem;
     transform: translateY(0);
     width: 16px;
     height: 16px;
@@ -756,7 +741,6 @@ html:not(.dark) .timeline-item::before {
     background: var(--accent-purple);
     transform: scale(1.3);
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
-    /* Pulse animation in animations.css */
 }
 
 .timeline-content {
@@ -766,7 +750,6 @@ html:not(.dark) .timeline-item::before {
     position: relative;
 }
 
-/* Hover highlight bar */
 .timeline-content::before {
     content: '';
     position: absolute;
@@ -795,7 +778,7 @@ html:not(.dark) .timeline-item::before {
     text-align: left;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content:  space-between;
     align-items: center;
     gap: 2rem;
     padding: 2rem 2.5rem;
@@ -816,7 +799,7 @@ html:not(.dark) .timeline-item::before {
     font-size: 0.85rem;
     display: inline-block;
     margin-bottom: 0.75rem;
-    padding: 0.4rem 1rem;
+    padding: 0.4.rem 1rem;
     background: rgba(59, 130, 246, 0.15);
     border-radius: 2rem;
     border: 1px solid rgba(59, 130, 246, 0.3);
@@ -873,7 +856,7 @@ html:not(.dark) .timeline-item::before {
 }
 
 .timeline-accordion-trigger[data-open="true"] + .timeline-details {
-    max-height: 500px; /* Controls accordion open height */
+    max-height: 500px;
     padding: 0 2.5rem 2rem 2.5rem;
     border-top: 1px solid var(--border-dark);
     margin-top: 1rem;
@@ -909,7 +892,7 @@ html:not(.dark) .timeline-accordion-trigger[data-open="true"] + .timeline-detail
 
 .project-card img {
     width: 100%;
-    height: 220px; /* Increased height */
+    height: 220px;
     object-fit: cover;
     border-radius: 0.8rem 0.8rem 0 0;
     opacity: 0.9;
@@ -935,7 +918,7 @@ html:not(.dark) .timeline-accordion-trigger[data-open="true"] + .timeline-detail
     opacity: 0.85;
     margin-bottom: 1rem;
     font-size: 0.95rem;
-    min-height: 4.5rem; /* Ensure consistent card height */
+    min-height: 4.5rem;
 }
 
 .project-tags {
@@ -999,8 +982,8 @@ html:not(.dark) .project-links {
 
 .project-link-demo:hover {
     background: linear-gradient(135deg, #2563eb, #7c3aed);
-}   
-    
+}
+
 /* ===== 11.0 Certifications Section ===== */
 .certifications-grid {
     display: grid;
@@ -1045,7 +1028,7 @@ html:not(.dark) .project-links {
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    display: inline-flex; /* For transform */
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
 }
@@ -1056,7 +1039,7 @@ html:not(.dark) .project-links {
 }
 
 .contact-form {
-    padding: 2.5rem; /* Increased padding */
+    padding: 2.5rem;
 }
 
 .contact-form label {
@@ -1072,7 +1055,7 @@ html:not(.dark) .project-links {
     padding: 0.875rem;
     margin-bottom: 1.5rem;
     background: rgba(59, 130, 246, 0.05);
-    border: 2px solid var(--border-dark); /* Thicker border */
+    border: 2px solid var(--border-dark);
     border-radius: 0.5rem;
     color: inherit;
     font-family: inherit;
@@ -1099,9 +1082,8 @@ html:not(.dark) .contact-form textarea {
     cursor: pointer;
 }
 
-/* Contact Form Status Message */
 .form-status-message {
-    display: none; /* Hidden by default */
+    display: none;
     padding: 0.875rem 1.25rem;
     margin-bottom: 1.5rem;
     border-radius: 0.5rem;
@@ -1112,18 +1094,17 @@ html:not(.dark) .contact-form textarea {
 
 .form-status-message.show {
     display: block;
-    /* Add fade-in animation */
     animation: fadeInUp 0.5s var(--ease-out-quint);
 }
 
 .form-status-message.success {
-    background: rgba(59, 130, 246, 0.1); /* Accent blue */
+    background: rgba(59, 130, 246, 0.1);
     border-color: rgba(59, 130, 246, 0.3);
     color: var(--accent-blue);
 }
 
 .form-status-message.error {
-    background: rgba(239, 68, 68, 0.1); /* Red */
+    background: rgba(239, 68, 68, 0.1);
     border-color: rgba(239, 68, 68, 0.3);
     color: var(--accent-red);
 }
@@ -1131,7 +1112,7 @@ html:not(.dark) .contact-form textarea {
 /* ===== 13.0 Footer ===== */
 .main-footer {
     text-align: center;
-    padding: 4rem 2rem 3rem; /* Increased top padding */
+    padding: 4rem 2rem 3rem;
     border-top: 1px solid var(--border-dark);
 }
 
@@ -1149,25 +1130,20 @@ html:not(.dark) .main-footer {
 }
 
 /* ===== 14.0 Utility & Toggle Buttons ===== */
-
-/* Hide extra cards by default */
 .project-card-extra,
 .cert-card-extra {
     display: none;
 }
 
-/* Show extra cards when grid is expanded */
 .project-grid.grid-expanded .project-card-extra,
 .certifications-grid.grid-expanded .cert-card-extra {
     display: block;
-    /* Fade-in animation is in animations.css */
 }
 
-/* Toggle Button Container */
 .toggle-grid-container {
     display: flex;
     justify-content: center;
-    margin-top: 2.5rem; /* Increased margin */
+    margin-top: 2.5rem;
 }
 
 .toggle-grid-btn {
@@ -1201,12 +1177,10 @@ html:not(.dark) .toggle-grid-btn {
     transition: transform 0.3s var(--ease-out-quint);
 }
 
-/* Rotate arrow when open */
 .toggle-grid-btn[data-open="true"] svg {
     transform: rotate(180deg);
 }
 
-/* Change text color slightly when expanded */
 .toggle-grid-btn[data-open="true"] {
     color: var(--accent-blue);
 }
